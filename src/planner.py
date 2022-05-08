@@ -214,8 +214,7 @@ def run_application(start, goal):
         print("Press 'q' to start following path")
         plt.show()
 
-    path /= RES # rescale it to original resolution
-    return path
+    return path / RES # rescale it to original resolution
 
 def parse_args(argv):
     if len(argv) == 1:  # running with no arguments
