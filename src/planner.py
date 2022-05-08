@@ -69,20 +69,19 @@ class RrtApf:
         y = np.random.randint(0, self.distance_mat.shape[0])
         return np.array([x, y])
 
-    def get_new_node(self, node, parentNode):
+    def get_new_node(self, node, parent_node):
 
-        if np.array_equal(node, parentNode):
-            return node
+        if np.array_equal(node, parent_node): return node
 
-        direction = node - parentNode
+        direction = node - parent_node
         direction_norm = (direction / np.linalg.norm(direction)) * self.offset
-        new_node_center = (parentNode + direction_norm).round().astype(int)
+        new_node_center = (parent_node + direction_norm).round().astype(int)
 
         dx = dy = 0
-        if (node[0] - parentNode[0]) == 0: dx = -self.offset
-        elif (node[1] - parentNode[1]) == 0: dy = -self.offset
+        if (node[0] - parent_node[0]) == 0: dx = -self.offset
+        elif (node[1] - parent_node[1]) == 0: dy = -self.offset
         else:
-            slope = (node[1] - parentNode[1]) / (node[0] - parentNode[0])
+            slope = (node[1] - parent_node[1]) / (node[0] - parent_node[0])
             dy = math.sqrt(self.offset ** 2 / (slope ** 2 + 1))
             dx = -slope * dy
 

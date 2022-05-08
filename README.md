@@ -20,10 +20,12 @@ from [here](https://emanual.robotis.com/docs/en/platform/turtlebot3/quick-start/
 
 ## How to run?
 
-Copy project3 folder in your catkin workspace.
-build the package using,
+Clone the project folder in your catkin workspace and build the package using following commands
+
 ```
-cd catkin_ws
+cd catkin_ws/src/
+git clone https://github.com/HrushikeshBudhale/rrt_apf_planner_project.git
+cd ..
 export TURTLEBOT3_MODEL=burger
 catkin build rrt_follower
 source devel/setup.bash
