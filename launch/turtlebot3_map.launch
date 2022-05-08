@@ -1,0 +1,28 @@
+<launch>
+  <arg name="model" default="$(env TURTLEBOT3_MODEL)" doc="model type [burger, waffle, waffle_pi]"/>
+  <arg name="start_x" default="1.0"/>
+  <arg name="start_y" default="1.0"/>
+  <arg name="start_angle" default="0.0"/>
+  <arg name="goal_x" default="9.0"/>
+  <arg name="goal_y" default="9.0"/>
+  <arg name="rpm1" default="5"/>
+  <arg name="rpm2" default="10"/>
+  <arg name="clearance" default="0.1"/>
+  
+  <arg name="sim_x" value="$(eval arg('start_x') - 5)"/>
+  <arg name="sim_y" value="$(eval arg('start_y') - 5)"/>
+
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find rrt_follower)/worlds/map.world"/>
+    <arg name="paused" value="false"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" value="true"/>
+    <arg name="headless" value="false"/>
+    <arg name="debug" value="false"/>
+  </include>
+
+  <param name="robot_description" command="$(find xacro)/xacro $(find turtlebot3_description)/urdf/turtlebot3_$(arg model).urdf.xacro" />
+
+  <node pkg="rrt_follower" type="tb_node.py" name="tb_node" output="screen" args="$(arg start_x) $(arg start_y) $(arg start_angle) $(arg goal_x) $(arg goal_y)  $(arg rpm1)  $(arg rpm2)  $(arg clearance) "/>
+  <node pkg="gazebo_ros" type="spawn_model" name="spawn_urdf"  args="-urdf -model turtlebot3_$(arg model) -x $(arg sim_x) -y $(arg sim_y) -z 0 -param robot_description" />
+</launch>
