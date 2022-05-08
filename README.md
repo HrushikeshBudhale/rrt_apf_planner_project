@@ -5,13 +5,14 @@ A closed loop path plannign and following for Turtlebot3 robot in Gazebo simulat
 - RRT - Rapidly Exploring Random Trees
 - APF - Artificial Potential Field
 
- Demo video with gazebo simulation [youtube](https://youtu.be/93RBWRq_yuU)
 
 
 <p align="center">
-  <img src="https://github.com/HrushikeshBudhale/rrt_apf_planner_project/blob/main/docs/rrt_apf_planner.gif?raw=0" alt="OUTPUT GIF" width="300"/>
+  <img src="https://github.com/HrushikeshBudhale/rrt_apf_planner_project/blob/master/docs/rrt_apf_planner.gif?raw=0" alt="OUTPUT GIF" width="300"/>
 </p>
----
+
+ Demo video with gazebo simulation [youtube](https://youtu.be/93RBWRq_yuU)
+ 
 ## Dependencies
 - python 3.6 or above
 - numpy
