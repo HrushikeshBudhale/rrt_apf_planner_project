@@ -1,6 +1,6 @@
 # RRT+APF Path Planner
 
-A closed loop path plannign and following for Turtlebot3 robot in Gazebo simulator using RRT+APF path planner and differential drive controller.
+A closed loop path planning and following for Turtlebot3 robot in Gazebo simulator using RRT+APF path planner and differential drive controller.
 
 - RRT - Rapidly Exploring Random Trees
 - APF - Artificial Potential Field
